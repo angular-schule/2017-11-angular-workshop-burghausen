@@ -1,0 +1,13 @@
+{
+  "name": "typescript-playground",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Johannes Hoppe <johannes.hoppe@haushoppe-its.de> (http://haushoppe-its.de/)",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^2.6.1"
+  }
+}
