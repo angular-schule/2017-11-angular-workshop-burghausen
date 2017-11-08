@@ -2,3 +2,5 @@
 /bootstrap-playground/node_modules/
 /webpack-playground/node_modules/
 /typescript-playground/node_modules/
+/typescript-playground/*.js
+/typescript-playground/*.js.map
