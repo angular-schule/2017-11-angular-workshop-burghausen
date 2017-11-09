@@ -3,7 +3,7 @@ import { Book } from '../shared/book';
 
 import { BookComponent } from './book.component';
 
-fdescribe('BookComponent', () => {
+describe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
@@ -21,15 +21,15 @@ fdescribe('BookComponent', () => {
 
   it('should always call rateUpAllowed()', () => {
 
-    let rateUpAllowedWasCalled = false;
-
     component.book = {
       rating: 0,
-      rateUpAllowed: () => rateUpAllowedWasCalled = true,
+      rateUpAllowed: () => false,
       rateDownAllowed: () => false
     } as Book;
 
+    spyOn(component.book, 'rateUpAllowed');
+
     fixture.detectChanges();
-    expect(rateUpAllowedWasCalled).toBe(true);
+    expect(component.book.rateUpAllowed).toHaveBeenCalled();
   });
 });
