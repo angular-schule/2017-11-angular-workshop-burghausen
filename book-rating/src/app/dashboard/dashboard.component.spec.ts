@@ -27,5 +27,18 @@ describe('DashboardComponent', () => {
   it('should always have a list of 2 books', () => {
     expect(component.books.length).toBe(2);
   });
+
+  // State driven test
+  it('should sort descending', () => {
+
+    component.books = [
+      new Book('Buch A', '', '', 3),
+      new Book('Buch B', '', '', 5)
+    ];
+
+    component.reorderBooks(null);
+
+    expect(component.books[0].isbn).toBe('Buch B');
+    expect(component.books[1].isbn).toBe('Buch A');
   });
 });
