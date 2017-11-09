@@ -8,17 +8,12 @@ import { AfterViewInit, Component, OnInit, OnDestroy, ViewChild } from '@angular
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent
-  implements OnInit, AfterViewInit, OnDestroy {
+export class DashboardComponent implements OnInit {
 
   books: Book[];
 
   @ViewChild(BookComponent)
   bookComponent: BookComponent;
-
-  subscription: any;
-
-  constructor() { }
 
   ngOnInit() {
     this.books = [
@@ -28,17 +23,8 @@ export class DashboardComponent
     this.reorderBooks(null);
   }
 
-  ngAfterViewInit() {
-    this.subscription = this.bookComponent.rated
-      .subscribe((book) => console.log('RxJS!', book));
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
   reorderBooks(book: Book) {
-    //console.log(book);
+    // console.log(book);
     this.books.sort((a, b) => b.rating - a.rating);
   }
 }
