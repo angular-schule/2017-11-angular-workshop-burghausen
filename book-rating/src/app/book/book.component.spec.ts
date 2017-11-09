@@ -3,7 +3,7 @@ import { Book } from '../shared/book';
 
 import { BookComponent } from './book.component';
 
-xdescribe('BookComponent', () => {
+fdescribe('BookComponent', () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
 
@@ -17,20 +17,19 @@ xdescribe('BookComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
-    component.book = {
-      isbn: '',
-      title: '',
-      rating: 0,
-      description: '',
-      rateUp: () => {},
-      rateDown: () => {},
-      rateUpAllowed: () => false,
-      rateDownAllowed: () => false
-    };
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should always call rateUpAllowed()', () => {
+
+    let rateUpAllowedWasCalled = false;
+
+    component.book = {
+      rating: 0,
+      rateUpAllowed: () => rateUpAllowedWasCalled = true,
+      rateDownAllowed: () => false
+    } as Book;
+
+    fixture.detectChanges();
+    expect(rateUpAllowedWasCalled).toBe(true);
   });
 });
