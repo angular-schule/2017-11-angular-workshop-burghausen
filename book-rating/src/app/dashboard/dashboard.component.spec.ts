@@ -2,7 +2,7 @@ import { BookComponent } from './../book/book.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import { Book } from "../shared/book";
+import { Book } from '../shared/book';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
