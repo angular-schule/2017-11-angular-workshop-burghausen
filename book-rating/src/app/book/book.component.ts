@@ -1,4 +1,4 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Component } from '@angular/core';
 
 import { Book } from '../shared/book';
 
@@ -7,13 +7,11 @@ import { Book } from '../shared/book';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
+export class BookComponent {
 
   @Input() book: Book;
 
-  constructor() { }
-
-  ngOnInit() {
+  get ratings() {
+    return new Array(this.book.rating);
   }
-
 }
