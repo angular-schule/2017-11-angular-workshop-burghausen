@@ -3,3 +3,8 @@
 h2 {
   color: $red;
 }
+
+.notAllowed {
+  cursor: not-allowed;
+  opacity: 0.2;
+}

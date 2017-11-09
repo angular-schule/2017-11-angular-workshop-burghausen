@@ -15,7 +15,16 @@
       {{ book.description }}
     </p>
 
-    <button class="btn btn-secondary">-1</button>
-    <button class="btn btn-danger">+1</button>
+    <button
+      [disabled]="!book.rateDownAllowed()"
+      [ngClass]="{ notAllowed : !book.rateDownAllowed() }"
+      (click)="book.rateDown()"
+      class="btn btn-secondary">-1</button>
+
+    <button
+      [disabled]="!book.rateUpAllowed()"
+      [ngClass]="{ notAllowed : !book.rateUpAllowed() }"
+      (click)="book.rateUp()"
+      class="btn btn-danger">+1</button>
   </div>
 </div>

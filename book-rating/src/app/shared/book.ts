@@ -9,14 +9,22 @@ export class Book {
   }
 
   rateUp() {
-    if (this.rating < 5) {
+    if (this.rateUpAllowed()) {
       this.rating++;
     }
   }
 
   rateDown() {
-    if (this.rating > 1) {
+    if (this.rateDownAllowed()) {
       this.rating--;
     }
+  }
+
+  rateUpAllowed() {
+    return this.rating < 5;
+  }
+
+  rateDownAllowed() {
+    return this.rating > 1;
   }
 }
