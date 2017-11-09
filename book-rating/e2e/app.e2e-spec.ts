@@ -7,8 +7,8 @@ describe('book-rating App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display the text book rating', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to br!');
+    expect(page.getParagraphText()).toEqual('Book Rating!');
   });
 });
