@@ -26,5 +26,11 @@
       [ngClass]="{ notAllowed : !book.rateUpAllowed() }"
       (click)="rateUp()"
       class="btn btn-danger">+1</button>
+
+    <a class="btn btn-secondary"
+      [routerLink]="['/book', book.isbn]">
+      Details
+    </a>
+
   </div>
 </div>
