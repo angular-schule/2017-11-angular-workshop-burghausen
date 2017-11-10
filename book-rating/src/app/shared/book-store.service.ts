@@ -1,10 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 
 @Injectable()
 export class BookStoreService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAllStatic(): Book[] {
 
