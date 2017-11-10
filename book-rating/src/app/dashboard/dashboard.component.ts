@@ -2,6 +2,7 @@ import { BookComponent } from './../book/book.component';
 
 import { Book } from './../shared/book';
 import { AfterViewInit, Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -15,11 +16,10 @@ export class DashboardComponent implements OnInit {
   @ViewChild(BookComponent)
   bookComponent: BookComponent;
 
+  constructor(private bs: BookStoreService) { }
+
   ngOnInit() {
-    this.books = [
-      new Book('000', 'Angular', 'Einstieg in die komponentenbasierte Entwicklung...', 5),
-      new Book('111', 'AngularJS', 'Einstieg in das Framework')
-    ];
+    this.books = this.bs.getAllStatic();
     this.reorderBooks(null);
   }
 
