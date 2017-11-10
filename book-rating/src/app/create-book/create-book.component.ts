@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Book } from '../shared/book';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'br-create-book',
@@ -7,6 +8,9 @@ import { Book } from '../shared/book';
   styleUrls: ['./create-book.component.scss']
 })
 export class CreateBookComponent {
+
+  @ViewChild(NgForm)
+  bookForm: NgForm;
 
   book = Book.empty();
 
@@ -16,5 +20,6 @@ export class CreateBookComponent {
   add() {
     this.bookCreated.emit(this.book);
     this.book = Book.empty();
+    this.bookForm.reset(this.book);
   }
 }

@@ -1,0 +1,13 @@
+.form-control.ng-touched {
+  &.ng-invalid {
+    border-left: 4px solid red;
+  }
+  &.ng-valid {
+    border-left: 4px solid green;
+  }
+}
+
+form.ng-invalid button {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
