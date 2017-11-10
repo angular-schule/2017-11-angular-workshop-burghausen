@@ -19,8 +19,10 @@ export class DashboardComponent implements OnInit {
   constructor(private bs: BookStoreService) { }
 
   ngOnInit() {
-    this.books = this.bs.getAllStatic();
-    this.reorderBooks(null);
+    this.bs.getAll().subscribe(books => {
+      this.books = books;
+      this.reorderBooks(null);
+    });
   }
 
   reorderBooks(book: Book) {
