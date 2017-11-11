@@ -10,6 +10,7 @@ import { BookComponent } from './book/book.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { BookStoreService } from './shared/book-store.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GridModule
   ],
   providers: [
     BookStoreService

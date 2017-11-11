@@ -2,6 +2,15 @@
 (bookCreated)="addBook($event)"
 ></br-create-book>
 
+<kendo-grid [data]="books" [height]="410">
+  <kendo-grid-column field="isbn" title="ISBN" width="40"></kendo-grid-column>
+  <kendo-grid-column field="title" title="Title" width="250"></kendo-grid-column>
+  <kendo-grid-column field="rating" title="Rating"></kendo-grid-column>
+  <kendo-grid-column field="description" title="Description"></kendo-grid-column>
+</kendo-grid>
+
+<hr>
+
 <br-book
   *ngFor="let b of books"
   [book]="b"

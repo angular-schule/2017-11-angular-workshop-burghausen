@@ -1,5 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { pluck, switchMap } from 'rxjs/operators'; // letable operator!
+
 
 @Component({
   selector: 'br-book-details',
@@ -8,11 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
-  isbn: string;
+  isbn: Observable<string>;
+
+  // book$: Observable<Book>;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.isbn = this.route.snapshot.params.isbn;
+    this.isbn = this.route.params.pipe(pluck('isbn'));
+
+    // TODO:
+    /*
+    this.book$ = this.route.params.pipe(
+      pluck('isbn'),
+      switchMap(isbn => this.store.getSingle(isbn))
+    );
+    */
+
   }
 }
